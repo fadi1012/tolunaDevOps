@@ -11,5 +11,4 @@ spec:
     targetPort: 5000
   selector:
     app: toluna-devops
-  sessionAffinity: None
-  type: LoadBalancer
+  type: ClusterIP

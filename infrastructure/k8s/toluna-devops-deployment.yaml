@@ -5,34 +5,13 @@ metadata:
     app: toluna-devops
   name: toluna-devops
 spec:
-  progressDeadlineSeconds: 600
-  replicas: 3
-  revisionHistoryLimit: 10
+  replicas: 1
   selector:
     matchLabels:
-      app: toluna-devops
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
-  template:
-    metadata:
-      creationTimestamp: null
-      labels:
-        app: toluna-devops
-    spec:
-      containers:
-      - image: fadizaboura/toluna-devops:1
-        imagePullPolicy: Always
-        name: toluna-devops
-        ports:
-          - containerPort: 5000
-        resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
+      app: toluna-devop
+  containers:
+  - image: fadizaboura/toluna-devops:1
+    imagePullPolicy: Always
+    name: toluna-devops
+    ports:
+      - containerPort: 5000
