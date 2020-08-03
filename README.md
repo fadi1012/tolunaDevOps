@@ -16,18 +16,8 @@
 
 - gcloud container clusters get-credentials toluna --region europe-west3 --project toluna-devops
 
-# K8s actions (under ./k8s directory)
-https://kubernetes.io/docs/tutorials/stateless-application/expose-external-ip-address/
-- kubectl create deployment --image=docker.io/fadizaboura/toluna-devops toluna-devops
 
-- kubectl get deploy toluna-devops -o yaml > toluna-devops-deployment.yaml
-
-- kubectl expose deployment toluna-devops --port=5000 --name=toluna-devops-svc
-
-- kubectl get svc toluna-devops-svc -o yaml > toluna-devops-service.yaml
-
-
-# start service and deployment pods
+# start service and deployment pods (under ./k8s directory)
 
 - kubectl apply -f .
 
@@ -43,6 +33,8 @@ https://kubernetes.io/docs/tutorials/stateless-application/expose-external-ip-ad
 
 - curl localhost:5000
 
+- kubectl port-forward service/toluna-devops-svc 5000:80
+
 - http://localhost:5000/
 
 
@@ -55,4 +47,34 @@ https://kubernetes.io/docs/tutorials/stateless-application/expose-external-ip-ad
 - docker login 
 
 - docker push fadizaboura/toluna-devops:1
+
+
+# TODO/Improvements:
+
+- tf state : 
+1) should be stored in gcp bucket in order to be encrypted
+2) race condition - saw that in aws it's done using dynamoDB - need to check how it's done in GCP
+
+- provider credentials - should find a service account to store into, then with tf we can get it as a data source
+now it's stored locally
+
+- load balancer + private subnests - currently there is one public subnet
+
+- service type - change to load balancer in order to have an ip which is reachable through http 
+currently my service type is ClusterIp i need to do port forwarding  kubectl port-forward service/toluna-devops-svc 5000:80
+
+# Nice to have 
+- monitoring solution. make sure that we are up.
+
+
+
+# K8s actions (under ./k8s directory)
+https://kubernetes.io/docs/tutorials/stateless-application/expose-external-ip-address/
+- kubectl create deployment --image=docker.io/fadizaboura/toluna-devops toluna-devops
+
+- kubectl get deploy toluna-devops -o yaml > toluna-devops-deployment.yaml
+
+- kubectl expose deployment toluna-devops --port=5000 --name=toluna-devops-svc
+
+- kubectl get svc toluna-devops-svc -o yaml > toluna-devops-service.yaml
 
