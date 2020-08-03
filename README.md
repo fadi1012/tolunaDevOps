@@ -12,7 +12,7 @@
 
 # GCP
 
-- gcloud init
+- gcloud login
 
 - gcloud container clusters get-credentials toluna --region europe-west3 --project toluna-devops
 
@@ -32,8 +32,6 @@
 - kubectl exec -it ${id} bash
 
 - curl localhost:5000
-
-- kubectl port-forward service/toluna-devops-svc 5000:80
 
 - http://localhost:5000/
 
