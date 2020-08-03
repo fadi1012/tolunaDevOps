@@ -31,6 +31,8 @@ https://kubernetes.io/docs/tutorials/stateless-application/expose-external-ip-ad
 
 - kubectl apply -f .
 
+- kubectl port-forward service/toluna-devops-svc 5000:80
+
 - kubectl describe svc toluna-devops-svc
 
 - kubectl get svc
@@ -40,6 +42,8 @@ https://kubernetes.io/docs/tutorials/stateless-application/expose-external-ip-ad
 - kubectl exec -it ${id} bash
 
 - curl localhost:5000
+
+- http://localhost:5000/
 
 
 # docker container actions (Docker image):

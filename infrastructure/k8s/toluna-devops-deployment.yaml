@@ -8,10 +8,18 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: toluna-devop
-  containers:
-  - image: fadizaboura/toluna-devops:1
-    imagePullPolicy: Always
-    name: toluna-devops
-    ports:
-      - containerPort: 5000
+      app: toluna-devops
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: toluna-devops
+    spec:
+      containers:
+      - image: fadizaboura/toluna-devops:1
+        imagePullPolicy: Always
+        name: toluna-devops
+        ports:
+          - containerPort: 5000
+
+
