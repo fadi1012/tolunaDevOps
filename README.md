@@ -61,6 +61,8 @@ now it's stored locally
 - service type - change to load balancer in order to have an ip which is reachable through http 
 currently my service type is ClusterIp i need to do port forwarding  kubectl port-forward service/toluna-devops-svc 5000:80
 
+- adding security groups inside vpc machines (node) 
+
 # Nice to have 
 - monitoring solution. make sure that we are up.
 
