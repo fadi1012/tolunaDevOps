@@ -1,0 +1,5 @@
+project_id = "toluna-devops"
+vpc_name = "vpc-test"
+subnet_cidr_block = "10.10.0.0/24"
+cluster_name = "toluna"
+region = "europe-west3"

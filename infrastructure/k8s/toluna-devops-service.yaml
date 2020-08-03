@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: toluna-devops
+  name: toluna-devops-svc
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: toluna-devops
+  sessionAffinity: None
+  type: ClusterIP

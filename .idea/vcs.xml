@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/application/learn-terraform-provision-eks-cluster" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/awsome-app-infra" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/infrastructure/learn-terraform-provision-eks-cluster" vcs="Git" />
   </component>
 </project>
